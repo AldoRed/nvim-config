@@ -15,6 +15,8 @@ vim.cmd("set smarttab") -- Use shiftwidths for tab stops, otherwise use tabstop
 
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Move to the window on the left' })
 vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = 'Move to the window on the right' })
+vim.keymap.set('n', '<leader>j', '<C-w>j', { desc = 'Move to the window below' })
+vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = 'Move to the window above' })
 
 -- Shortcuts for NvimTree
 local map = vim.keymap.set
@@ -28,3 +30,7 @@ vim.keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Buffer a
 
 -- Cerrar buffer actual
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Cerrar buffer actual" })
+
+-- Guardar buffer y que aparezca notificación en la esquina superior
+vim.keymap.set("n", "<leader>w", ":w<CR>:lua require('notify').notify('Archivo guardado', vim.log.levels.INFO)<CR>", { desc = "Guardar buffer" })
+vim.keymap.set("n", "<leader>q", ":wq<CR>:lua require('notify').notify('Archivo guardado y cerrado', vim.log.levels.INFO)<CR>", { desc = "Guardar y cerrar buffer" })
