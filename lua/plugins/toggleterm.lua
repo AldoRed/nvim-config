@@ -19,6 +19,14 @@ return {
             vim.keymap.set('t', '<leader>hh', '<C-\\><C-n><C-w>h', { desc = 'Move to the left window' })
             vim.keymap.set('t', '<leader>ll', '<C-\\><C-n><C-w>l', { desc = 'Move to the right window' })
             vim.keymap.set('t', '<leader>kk', '<C-\\><C-n><C-w>k', { desc = 'Move to the upper window' })
+            -- git log --oneline --graph --all --decorate
+            -- Crear un atajo para abrir la Terminal #1 y ejecutar `git log`
+            vim.keymap.set("n", "<leader>gitlog", function()
+                -- Abrir la terminal 1 si no está abierta
+                vim.cmd("1ToggleTerm") 
+                -- Enviar el comando `git log` a la terminal
+                vim.api.nvim_feedkeys("git log --oneline --graph --all --decorate\n", "n", false)
+            end, { desc = "Abrir Terminal 1 y mostrar git log" })
         end,
     },
 }
