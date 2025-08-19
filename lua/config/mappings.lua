@@ -30,7 +30,3 @@ vim.keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Buffer a
 
 -- Cerrar buffer actual
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Cerrar buffer actual" })
-
--- Guardar buffer y que aparezca notificación en la esquina superior
-vim.keymap.set("n", "<leader>w", ":w<CR>:lua require('notify').notify('Archivo guardado', vim.log.levels.INFO)<CR>", { desc = "Guardar buffer" })
-vim.keymap.set("n", "<leader>q", ":wq<CR>:lua require('notify').notify('Archivo guardado y cerrado', vim.log.levels.INFO)<CR>", { desc = "Guardar y cerrar buffer" })
